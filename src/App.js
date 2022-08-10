@@ -2,8 +2,8 @@ import "./App.css";
 
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/header/header.component";
-import HomePage from "./components/home-page/home-page.component";
-import CoinPage from "./components/coin-page/coin-page.component";
+import HomePage from "./routes/home-page/home-page.component";
+import CoinPage from "./routes/coin-page/coin-page.component";
 
 function App() {
 	return (
