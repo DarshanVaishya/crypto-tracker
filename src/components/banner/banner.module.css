@@ -1,0 +1,29 @@
+.banner {
+	background-image: url("../../assets/banner-bg.jpg");
+}
+
+.bannerContent {
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	padding-top: 25px;
+	justify-content: space-around;
+}
+
+.tagline {
+	display: flex;
+	height: 40%;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.title {
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.subtext {
+	color: darkgrey;
+	text-transform: capitalize;
+}
