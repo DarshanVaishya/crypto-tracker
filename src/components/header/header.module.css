@@ -1,0 +1,15 @@
+.select {
+	width: 100px;
+	height: 40px;
+	margin-right: 15px;
+}
+
+.title {
+	color: gold;
+	flex: 1;
+	font-weight: bold;
+}
+
+.title span {
+	cursor: pointer;
+}
