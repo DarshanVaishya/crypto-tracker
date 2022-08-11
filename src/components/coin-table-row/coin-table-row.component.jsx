@@ -10,8 +10,8 @@ function CoinTableRow({ coin }) {
 	const { symbol } = useContext(cryptoContext);
 	const navigate = useNavigate();
 	const profit = coin.price_change_percentage_24h >= 0;
+	const clickHandler = () => navigate(`/coins/${coin.id}`);
 
-	// onClick={() => navigate(`/coins/${coin.id}`)}
 	return (
 		<TableRow className={styles.row} key={coin.name}>
 			<TableCell component="th" scope="row" className={styles.cell}>
@@ -44,7 +44,9 @@ function CoinTableRow({ coin }) {
 			</TableCell>
 
 			<TableCell>
-				<Button variant="outlined">View</Button>
+				<Button variant="outlined" onClick={clickHandler}>
+					View
+				</Button>
 			</TableCell>
 		</TableRow>
 	);

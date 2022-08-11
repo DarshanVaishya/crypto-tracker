@@ -71,20 +71,22 @@ function CoinsTable() {
 			/>
 
 			<TableContainer>
+				<Table>
+					<TableHead className={styles.head}>
+						<TableRow>
+							{rows.map((head) => (
+								<TableCell className={styles.headCell} key={head}>
+									{head}
+								</TableCell>
+							))}
+						</TableRow>
+					</TableHead>
+				</Table>
+
 				{loading ? (
 					<LinearProgress className={styles.progress} />
 				) : (
 					<Table>
-						<TableHead className={styles.head}>
-							<TableRow>
-								{rows.map((head) => (
-									<TableCell className={styles.headCell} key={head}>
-										{head}
-									</TableCell>
-								))}
-							</TableRow>
-						</TableHead>
-
 						<TableBody>
 							{coinsToShow.map((coin) => (
 								<CoinTableRow key={coin.id} coin={coin} />
