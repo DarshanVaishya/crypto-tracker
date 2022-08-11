@@ -11,7 +11,7 @@ function Banner() {
 						Crypto Tracker
 					</Typography>
 
-					<Typography variant="subtitle2" className={styles.subtext}>
+					<Typography variant="subtitle1" className={styles.subtext}>
 						Your one-stop source for crypto
 					</Typography>
 				</div>

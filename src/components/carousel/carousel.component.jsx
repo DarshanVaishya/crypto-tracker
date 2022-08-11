@@ -13,8 +13,11 @@ const responsiveOb = {
 	0: {
 		items: 2,
 	},
-	512: {
+	650: {
 		items: 4,
+	},
+	1000: {
+		items: 5,
 	},
 };
 
@@ -36,26 +39,25 @@ function Carousel() {
 
 	const items = trending.map((coin) => <CarouselItem coin={coin} />);
 
-	if (trending.length === 0)
-		return (
-			<div className={styles.loader}>
-				<CircularProgress />;
-			</div>
-		);
-
 	return (
 		<div className={styles.container}>
-			<AliceCarousel
-				mouseTracking
-				infinite
-				autoPlayInterval={3000}
-				animationDuration={1500}
-				disableDotsControls
-				disableButtonsControls
-				responsive={responsiveOb}
-				autoPlay
-				items={items}
-			/>
+			{trending.length === 0 ? (
+				<div className={styles.loader}>
+					<CircularProgress color="inherit" />
+				</div>
+			) : (
+				<AliceCarousel
+					mouseTracking
+					infinite
+					autoPlayInterval={3000}
+					animationDuration={1500}
+					disableDotsControls
+					disableButtonsControls
+					autoPlay
+					responsive={responsiveOb}
+					items={items}
+				/>
+			)}
 		</div>
 	);
 }

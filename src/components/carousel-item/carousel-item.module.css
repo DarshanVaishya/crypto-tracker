@@ -3,6 +3,13 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: #383645;
+	max-width: 150px;
+	margin: 0 auto;
 }
 
 .img {
@@ -11,7 +18,7 @@
 
 .maintext,
 .subtext {
-	color: #222;
+	color: #c2c2c2;
 	font-weight: 600;
 }
 
@@ -20,14 +27,14 @@
 }
 
 .subtext {
-	font-size: 22px;
+	font-size: 18px;
 	font-weight: 500;
 }
 
 .down {
-	color: red;
+	color: #dc2626;
 }
 
 .up {
-	color: darkgreen;
+	color: #16a34a;
 }

@@ -33,7 +33,7 @@ function Header() {
 			<AppBar color="transparent" position="static">
 				<Container>
 					<Toolbar>
-						<Typography className={styles.title} variant="h6">
+						<Typography className={styles.title} variant="h5">
 							<span onClick={clickHandler}>Crypto Tracker</span>
 						</Typography>
 
