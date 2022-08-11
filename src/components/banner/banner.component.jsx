@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import Carousel from "../carousel/carousel.component";
 import styles from "./banner.module.css";
 
 function Banner() {
@@ -14,6 +15,8 @@ function Banner() {
 						Your one-stop source for crypto
 					</Typography>
 				</div>
+
+				<Carousel />
 			</div>
 		</div>
 	);

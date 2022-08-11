@@ -15,7 +15,7 @@ function CryptoProvider({ children }) {
 		// TODO: Improve this logic
 		const map = {
 			USD: "$",
-			CAD: "CA $",
+			CAD: "CA$",
 			EUR: "€",
 			INR: "₹",
 		};
