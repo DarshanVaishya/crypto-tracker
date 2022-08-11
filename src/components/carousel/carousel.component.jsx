@@ -7,6 +7,7 @@ import { cryptoContext } from "../../contexts/crypto.context";
 import { TrendingCoins } from "../../util/api";
 import AliceCarousel from "react-alice-carousel";
 import CarouselItem from "../carousel-item/carousel-item.component";
+import { CircularProgress } from "@mui/material";
 
 const responsiveOb = {
 	0: {
@@ -35,7 +36,13 @@ function Carousel() {
 
 	const items = trending.map((coin) => <CarouselItem coin={coin} />);
 
-	if (trending.length === 0) return <h3>Loading...</h3>;
+	if (trending.length === 0)
+		return (
+			<div className={styles.loader}>
+				<CircularProgress />;
+			</div>
+		);
+
 	return (
 		<div className={styles.container}>
 			<AliceCarousel
