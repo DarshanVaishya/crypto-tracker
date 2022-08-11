@@ -45,6 +45,7 @@ function Header() {
 						>
 							<MenuItem value="USD">USD</MenuItem>
 							<MenuItem value="CAD">CAD</MenuItem>
+							<MenuItem value="EUR">EUR</MenuItem>
 							<MenuItem value="INR">INR</MenuItem>
 						</Select>
 					</Toolbar>

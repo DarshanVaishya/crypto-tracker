@@ -12,22 +12,19 @@ function CryptoProvider({ children }) {
 	const [symbol, setSymbol] = useState("$");
 
 	useEffect(() => {
-		switch (currency) {
-			case "USD":
-				setSymbol("$");
-				break;
-			case "CAD":
-				setSymbol("CA $");
-				break;
-			case "INR":
-				setSymbol("₹");
-				break;
+		// TODO: Improve this logic
+		const map = {
+			USD: "$",
+			CAD: "CA $",
+			EUR: "€",
+			INR: "₹",
+		};
 
-			default:
-				throw new Error(
-					`cryptoContext: Invalid currency ${currency} provided.`
-				);
-		}
+		const currSymbol = map[currency] || null;
+		if (!currSymbol)
+			throw new Error(`cryptoContext: Invalid currency ${currency} given.`);
+
+		setSymbol(currSymbol);
 	}, [currency]);
 
 	const value = {
