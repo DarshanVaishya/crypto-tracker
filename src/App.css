@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap");
 
+/*
+Palatte
+#222222
+#c2c2c2
+#00a97f
+#383645
+
+*/
+
 * {
 	margin: 0;
 	padding: 0;
@@ -13,11 +22,10 @@ body {
 
 a {
 	text-decoration: none;
-	color: gold;
 }
 
 .App {
-	background-color: #171717;
-	color: white;
+	background-color: #222222;
+	color: #c2c2c2;
 	min-height: 100vh;
 }

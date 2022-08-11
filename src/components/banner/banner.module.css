@@ -1,5 +1,7 @@
 .banner {
-	background-image: url("../../assets/banner-bg.jpg");
+	margin-top: 20px;
+	background-color: #00a97f;
+	border-radius: 10px;
 }
 
 .bannerContent {
@@ -21,9 +23,10 @@
 .title {
 	font-weight: bold;
 	margin-bottom: 15px;
+	color: #383645;
 }
 
 .subtext {
-	color: darkgrey;
+	color: #383645;
 	text-transform: capitalize;
 }

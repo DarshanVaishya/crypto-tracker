@@ -16,7 +16,6 @@ import {
 	ThemeProvider,
 	Typography,
 } from "@mui/material";
-import { color } from "@mui/system";
 import CoinTableRow from "../coin-table-row/coin-table-row.component";
 
 const darkTheme = createTheme({
@@ -48,10 +47,11 @@ function CoinsTable() {
 	}, [fetchCoins]);
 
 	const handleSearch = () => {
-		return color.filter(
+		const searchLow = search.toLowerCase();
+		return coins.filter(
 			(coin) =>
-				coin.name.toLowerCase().includes(search) ||
-				coin.symbol.toLowerCase().inclides(search)
+				coin.name.toLowerCase().includes(searchLow) ||
+				coin.symbol.toLowerCase().includes(searchLow)
 		);
 	};
 

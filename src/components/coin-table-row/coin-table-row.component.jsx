@@ -40,7 +40,7 @@ function CoinTableRow({ coin }) {
 			</TableCell>
 
 			<TableCell className={styles.market}>
-				{symbol} {numberWithCommas(coin.market_cap)}
+				{symbol} {numberWithCommas(coin.market_cap.toString().slice(0, -6))}M
 			</TableCell>
 
 			<TableCell>
