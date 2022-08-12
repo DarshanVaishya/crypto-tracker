@@ -6,6 +6,7 @@ import axios from "axios";
 import {
 	createTheme,
 	LinearProgress,
+	Pagination,
 	Table,
 	TableBody,
 	TableCell,
@@ -18,6 +19,7 @@ import {
 } from "@mui/material";
 import CoinTableRow from "../coin-table-row/coin-table-row.component";
 
+const ITEMS_PER_PAGE = 10;
 const darkTheme = createTheme({
 	palette: {
 		primary: {
@@ -34,6 +36,7 @@ function CoinsTable() {
 	const [coins, setCoins] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [search, setSearch] = useState("");
+	const [page, setPage] = useState(1);
 
 	const fetchCoins = useCallback(async () => {
 		setLoading(true);
@@ -55,7 +58,14 @@ function CoinsTable() {
 		);
 	};
 
-	const coinsToShow = search ? handleSearch() : coins;
+	const handleChange = (_, newPage) => {
+		setPage(newPage);
+		window.scroll(0, 650);
+	};
+
+	const startIdx = (page - 1) * 10;
+	const filteredCoins = search ? handleSearch() : coins;
+	const coinsToShow = filteredCoins.slice(startIdx, startIdx + ITEMS_PER_PAGE);
 
 	return (
 		<ThemeProvider theme={darkTheme}>
@@ -92,6 +102,12 @@ function CoinsTable() {
 					</Table>
 				)}
 			</TableContainer>
+
+			<Pagination
+				className={styles.pagination}
+				count={+(filteredCoins.length / ITEMS_PER_PAGE).toFixed(0) || 1}
+				onChange={handleChange}
+			/>
 		</ThemeProvider>
 	);
 }

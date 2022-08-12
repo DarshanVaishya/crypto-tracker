@@ -1,5 +1,5 @@
 .header {
-	margin: 22px;
+	margin: 35px;
 	text-align: center;
 }
 
@@ -21,4 +21,12 @@
 .headCell {
 	color: black;
 	font-weight: 700;
+}
+
+.pagination {
+	padding: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	color: #00a97f;
 }
