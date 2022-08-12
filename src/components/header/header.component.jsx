@@ -35,9 +35,7 @@ function Header() {
 				</Container>
 			</AppBar>
 
-			<Container>
-				<Outlet />
-			</Container>
+			<Outlet />
 		</>
 	);
 }
