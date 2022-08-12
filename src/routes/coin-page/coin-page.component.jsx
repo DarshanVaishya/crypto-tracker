@@ -5,7 +5,7 @@ import { useContext, useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { cryptoContext } from "../../contexts/crypto.context";
 import { SingleCoin } from "../../util/api";
-import { CircularProgress, Typography } from "@mui/material";
+import { LinearProgress, Typography } from "@mui/material";
 import CoinInfo from "../../components/coin-info/coin-info.component";
 import parse from "html-react-parser";
 import { numberWithCommas } from "../../util/misc";
@@ -18,20 +18,13 @@ function CoinPage() {
 	const fetchCoin = useCallback(async () => {
 		const { data } = await axios.get(SingleCoin(id));
 		setCoin(data);
-		console.log(data);
 	}, [id]);
 
 	useEffect(() => {
-		console.log("Fetching coin");
 		fetchCoin();
 	}, [fetchCoin]);
 
-	if (!coin)
-		return (
-			<div className={styles.loader}>
-				<CircularProgress color="primary" />
-			</div>
-		);
+	if (!coin) return <LinearProgress color="primary" />;
 
 	return (
 		<div className={styles.container}>

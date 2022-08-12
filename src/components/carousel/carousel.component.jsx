@@ -29,7 +29,6 @@ function Carousel() {
 		setTrending([]);
 
 		const { data } = await axios.get(TrendingCoins(currency));
-		console.log(data);
 		setTrending(data);
 	}, [currency]);
 

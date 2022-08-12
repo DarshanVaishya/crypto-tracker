@@ -36,11 +36,13 @@ function CoinTableRow({ coin }) {
 			</TableCell>
 
 			<TableCell className={styles.price}>
-				{symbol} {numberWithCommas(coin.current_price.toFixed(2))}
+				{symbol}
+				{numberWithCommas(coin.current_price.toFixed(2))}
 			</TableCell>
 
 			<TableCell className={styles.market}>
-				{symbol} {numberWithCommas(coin.market_cap.toString().slice(0, -6))}M
+				{symbol}
+				{numberWithCommas(coin.market_cap.toString().slice(0, -6))}M
 			</TableCell>
 
 			<TableCell>
