@@ -93,12 +93,14 @@ function CoinsTable() {
 				)}
 			</TableContainer>
 
-			<Pagination
-				className={styles.pagination}
-				count={+(filteredCoins.length / ITEMS_PER_PAGE).toFixed(0) || 1}
-				color="primary"
-				onChange={handleChange}
-			/>
+			{!loading && (
+				<Pagination
+					className={styles.pagination}
+					count={+(filteredCoins.length / ITEMS_PER_PAGE).toFixed(0) || 1}
+					color="primary"
+					onChange={handleChange}
+				/>
+			)}
 		</>
 	);
 }

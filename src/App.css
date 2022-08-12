@@ -20,12 +20,19 @@ body {
 	font-family: "Montserrat", sans-serif;
 }
 
-a {
+a:link,
+a:visited {
 	text-decoration: none;
+	color: #00a97f;
+}
+
+a:hover,
+a:active {
+	text-decoration: underline;
 }
 
 .App {
 	background-color: #222222;
-	color: #c2c2c2;
+	color: #eee;
 	min-height: 100vh;
 }
