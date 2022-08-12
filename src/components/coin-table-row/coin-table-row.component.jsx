@@ -44,7 +44,7 @@ function CoinTableRow({ coin }) {
 			</TableCell>
 
 			<TableCell>
-				<Button variant="outlined" onClick={clickHandler}>
+				<Button variant="outlined" color="grey" onClick={clickHandler}>
 					View
 				</Button>
 			</TableCell>

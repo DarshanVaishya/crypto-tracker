@@ -4,7 +4,6 @@ import { CoinList } from "../../util/api";
 import { cryptoContext } from "../../contexts/crypto.context";
 import axios from "axios";
 import {
-	createTheme,
 	LinearProgress,
 	Pagination,
 	Table,
@@ -14,20 +13,11 @@ import {
 	TableHead,
 	TableRow,
 	TextField,
-	ThemeProvider,
 	Typography,
 } from "@mui/material";
 import CoinTableRow from "../coin-table-row/coin-table-row.component";
 
 const ITEMS_PER_PAGE = 10;
-const darkTheme = createTheme({
-	palette: {
-		primary: {
-			main: "#fff",
-		},
-		mode: "dark",
-	},
-});
 
 const rows = ["Coin", "24h Change", "Price", "Market Cap", "Action"];
 
@@ -68,7 +58,7 @@ function CoinsTable() {
 	const coinsToShow = filteredCoins.slice(startIdx, startIdx + ITEMS_PER_PAGE);
 
 	return (
-		<ThemeProvider theme={darkTheme}>
+		<>
 			<Typography className={styles.header} variant="h4">
 				Crypto currency prices by market cap
 			</Typography>
@@ -106,9 +96,10 @@ function CoinsTable() {
 			<Pagination
 				className={styles.pagination}
 				count={+(filteredCoins.length / ITEMS_PER_PAGE).toFixed(0) || 1}
+				color="primary"
 				onChange={handleChange}
 			/>
-		</ThemeProvider>
+		</>
 	);
 }
 

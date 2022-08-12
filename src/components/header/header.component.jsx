@@ -1,26 +1,9 @@
 import styles from "./header.module.css";
-import {
-	AppBar,
-	createTheme,
-	MenuItem,
-	Select,
-	ThemeProvider,
-	Toolbar,
-	Typography,
-} from "@mui/material";
+import { AppBar, MenuItem, Select, Toolbar, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { cryptoContext } from "../../contexts/crypto.context";
-
-const darkTheme = createTheme({
-	palette: {
-		primary: {
-			main: "#fff",
-		},
-		mode: "dark",
-	},
-});
 
 function Header() {
 	const navigate = useNavigate();
@@ -29,7 +12,7 @@ function Header() {
 	const changeHandler = (e) => setCurrency(e.target.value);
 
 	return (
-		<ThemeProvider theme={darkTheme}>
+		<>
 			<AppBar color="transparent" position="static">
 				<Container>
 					<Toolbar>
@@ -55,7 +38,7 @@ function Header() {
 			<Container>
 				<Outlet />
 			</Container>
-		</ThemeProvider>
+		</>
 	);
 }
 

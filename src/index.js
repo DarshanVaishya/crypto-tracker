@@ -1,18 +1,39 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import { StyledEngineProvider } from "@mui/material/styles";
+import {
+	createTheme,
+	StyledEngineProvider,
+	ThemeProvider,
+} from "@mui/material/styles";
 import App from "./App";
 import CryptoProvider from "./contexts/crypto.context";
+
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: "#00a97f",
+		},
+		secondary: {
+			main: "#383645",
+		},
+		grey: {
+			main: "#c2c2c2",
+		},
+		mode: "dark",
+	},
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<StyledEngineProvider injectFirst>
 			<BrowserRouter>
-				<CryptoProvider>
-					<App />
-				</CryptoProvider>
+				<ThemeProvider theme={theme}>
+					<CryptoProvider>
+						<App />
+					</CryptoProvider>
+				</ThemeProvider>
 			</BrowserRouter>
 		</StyledEngineProvider>
 	</React.StrictMode>
