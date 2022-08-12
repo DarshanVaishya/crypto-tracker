@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useContext, useCallback, useEffect } from "react";
 import { cryptoContext } from "../../contexts/crypto.context";
 import { HistoricalChart } from "../../util/api";
-import { CircularProgress } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { Line } from "react-chartjs-2";
 import {
 	CategoryScale,
@@ -11,9 +11,17 @@ import {
 	LinearScale,
 	LineElement,
 	PointElement,
+	Tooltip,
 } from "chart.js";
+import { chartDays } from "../../util/misc";
 
-ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale);
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Tooltip
+);
 
 function CoinInfo({ coin }) {
 	const [historicData, setHistoricData] = useState([]);
@@ -39,17 +47,37 @@ function CoinInfo({ coin }) {
 		return days === 1 ? time : date.toLocaleDateString();
 	});
 
-	const datasets = [{ data: historicData.map((data) => data[1]) }];
+	const datasets = [
+		{
+			data: historicData.map((data) => data[1]),
+			label: `Price (Past ${days} Days) in ${currency}`,
+			borderColor: "#00a97f",
+			backgroundColor: "#c2c2c2",
+		},
+	];
 
 	if (historicData.length === 0)
 		return (
 			<div className={styles.loader}>
-				<CircularProgress color="primary" />
+				<CircularProgress size={100} color="primary" />
 			</div>
 		);
+
 	return (
 		<div className={styles.container}>
 			<Line data={{ labels, datasets }} />{" "}
+			<div className={styles.buttonWrapper}>
+				{chartDays.map((day) => (
+					<Button
+						key={day.value}
+						onClick={() => setDays(day.value)}
+						disabled={day.value === days}
+						variant="contained"
+					>
+						{day.label}
+					</Button>
+				))}
+			</div>
 		</div>
 	);
 }
